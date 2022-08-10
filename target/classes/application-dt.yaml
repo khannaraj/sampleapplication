@@ -1,0 +1,26 @@
+---
+management:
+  endpoints:
+    web:
+      base-path: /management
+  endpoint:
+      health:
+        enabled: true
+        show-details: always
+  health:
+    jms:
+      enabled: false
+
+security:
+  disabled:
+    antMatchers: >
+      /management/**,
+
+logging:
+  file: /var/log/spring.log
+  level:
+    org.apache.activemq: WARN
+    org.hibernate: ERROR
+
+app:
+  environment: dt
