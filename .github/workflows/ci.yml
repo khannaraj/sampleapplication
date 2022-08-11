@@ -44,10 +44,9 @@ jobs:
     - name: "Hi Chnage Java Permission"
       run: ls -alrt $JAVA_HOME/bin/java
         
-    - uses: philips-software/sonar-scanner-action@v1.3.0
+    - uses: philips-software/sonar-scanner-action@v1.5.0
       with:
         token: ${{ secrets.SONAR_TOKEN }}
         projectName: sampleapplication
         projectKey: project.key.from.sonar.qube
         url: https://sonarcloud.io
-        organization: khannaraj
