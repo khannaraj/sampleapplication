@@ -47,6 +47,9 @@ jobs:
     - uses: philips-software/sonar-scanner-action@v1.3.0
       with:
         token: ${{ secrets.SONAR_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        JAVA_HOME: ''
         projectName: sampleapplication
         projectKey: project.key.from.sonar.qube
         url: https://sonarcloud.io
