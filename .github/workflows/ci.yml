@@ -50,3 +50,9 @@ jobs:
         projectName: sampleapplication
         projectKey: project.key.from.sonar.qube
         url: https://sonarcloud.io
+
+    - name: SonarQube Scan
+      uses: kitabisa/sonarqube-action@v1.2.0
+      with:
+        host: https://sonarcloud.io
+        login: ${{ secrets.SONAR_TOKEN }}
