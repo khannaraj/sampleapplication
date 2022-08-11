@@ -49,3 +49,4 @@ jobs:
       with:
         host: https://sonarcloud.io
         login: ${{ secrets.SONAR_TOKEN }}
+
