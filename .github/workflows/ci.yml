@@ -39,7 +39,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: "Say Hello Mona it's Monday"
-      run: echo "PATH is $PATH"
+      run: echo "PATH is $PATH || $JAVA_HOME"
         
     - uses: philips-software/sonar-scanner-action@v1.5.0
       with:
