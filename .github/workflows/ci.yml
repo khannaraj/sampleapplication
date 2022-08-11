@@ -49,7 +49,7 @@ jobs:
         token: ${{ secrets.SONAR_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        JAVA_HOME: ''
+        JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/8.0.332-9/x64
         projectName: sampleapplication
         projectKey: project.key.from.sonar.qube
         url: https://sonarcloud.io
