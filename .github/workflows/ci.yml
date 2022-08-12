@@ -43,11 +43,9 @@ jobs:
       
     - name: "Hi Chnage Java Permission"
       run: ls -alrt $JAVA_HOME/bin/java
-      
-    - name: Scan code
-      uses: vtex/action-sonarqube@main
+              
+    - name: SonarQube Scan
+      uses: kitabisa/sonarqube-action@v1.2.0
       with:
-        githubToken: ${{ secrets.GITHUB_TOKEN }} # https://docs.github.com/en/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
         host: https://sonarcloud.io
-        token: ${{ secrets.SONAR_TOKEN }}
-        
+        login: ${{ secrets.SONAR_TOKEN }}
