@@ -38,14 +38,15 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: "Say Hello Mona it's Monday"
+    - name: "Check Path and Java Home"
       run: echo "PATH is $PATH || $JAVA_HOME"
       
-    - name: "Hi Chnage Java Permission"
+    - name: "List Java Permission"
       run: ls -alrt $JAVA_HOME/bin/java
               
     - name: SonarQube Scan
-      uses: kitabisa/sonarqube-action@v1.2.0
-      with:
-        host: https://sonarcloud.io
-        login: ${{ secrets.SONAR_TOKEN }}
+      uses: sonarsource/sonarqube-scan-action@master
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: https://sonarcloud.io
+        
