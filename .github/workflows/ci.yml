@@ -38,6 +38,11 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
+    - name: Scan image
+      uses: anchore/scan-action@v3
+      with:
+        image: "khannaraj/sampleapplication:latest"
+        
     - name: "Check Path and Java Home"
       run: echo "PATH is $PATH || $JAVA_HOME"
       
