@@ -42,7 +42,9 @@ jobs:
       uses: anchore/scan-action@v3
       with:
         image: "khannaraj/sampleapplication:latest"
-        
+        fail-build: true
+        severity-cutoff: critical
+    
     - name: "Check Path and Java Home"
       run: echo "PATH is $PATH || $JAVA_HOME"
       
