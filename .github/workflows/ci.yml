@@ -49,10 +49,10 @@ jobs:
     - name: upload Anchore scan SARIF report
       uses: github/codeql-action/upload-sarif@v2
       with:
-        sarif_file: ${{ steps.scan.outputs.sarif }}
+        sarif_file: /tmp/file1
 
     - name: Inspect action SARIF report
-      run: cat ${{ steps.scan.outputs.sarif }}
+      run: cat /tmp/file1
   
     - name: "Check Path and Java Home"
       run: echo "PATH is $PATH || $JAVA_HOME"
