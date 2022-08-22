@@ -44,6 +44,7 @@ jobs:
         image: "khannaraj/sampleapplication:latest"
         fail-build: true
         severity-cutoff: critical
+        output-format: json
     
     - name: "Check Path and Java Home"
       run: echo "PATH is $PATH || $JAVA_HOME"
