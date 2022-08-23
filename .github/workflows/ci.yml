@@ -44,7 +44,8 @@ jobs:
       with:
         image: "khannaraj/sampleapplication:latest"
         fail-build: true
-        severity-cutoff: critical
+        #severity-cutoff: critical
+        severity-cutoff: medium
         acs-report-enable: true
 
     - name: upload Anchore scan SARIF report
