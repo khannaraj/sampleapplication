@@ -69,7 +69,7 @@ jobs:
         output: 'trivy-results.sarif'
 
     - name: Inspect TRIVY SARIF report
-      run: cat ${{ steps.scan2.output }}
+      run: cat ./trivy-results.sarif
         
     - name: "Check Path and Java Home"
       run: echo "PATH is $PATH || $JAVA_HOME"
