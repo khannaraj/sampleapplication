@@ -52,19 +52,25 @@ jobs:
       with:
         sarif_file: ${{ steps.scan.outputs.sarif }}
 
-    - name: Inspect action SARIF report
+    - name: Inspect ANCHORE SARIF report
       run: cat ${{ steps.scan.outputs.sarif }}
   
     - name: Run Trivy vulnerability scanner
       uses: aquasecurity/trivy-action@master
+      id: scan2
       with:
         image-ref: 'khannaraj/sampleapplication:latest'
-        format: 'table'
+        #format: 'table'
         exit-code: '1'
         ignore-unfixed: true
         vuln-type: 'os,library'
         severity: 'CRITICAL,HIGH'
-          
+        format: 'sarif'
+        output: 'trivy-results.sarif'
+
+    - name: Inspect TRIVY SARIF report
+      run: cat ${{ steps.scan2.output }}
+        
     - name: "Check Path and Java Home"
       run: echo "PATH is $PATH || $JAVA_HOME"
       
