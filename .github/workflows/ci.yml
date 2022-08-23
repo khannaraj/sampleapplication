@@ -25,8 +25,8 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-    - uses: actions/checkout@v2
-      name: Check out code
+    #- uses: actions/checkout@v2
+    #  name: Check out code
 
     - uses: mr-smithers-excellent/docker-build-push@v5
       name: Build & push Docker image
@@ -66,10 +66,10 @@ jobs:
         vuln-type: 'os,library'
         severity: 'CRITICAL,HIGH'
         format: 'sarif'
-        output: 'trivy-results.sarif'
+        #output: 'trivy-results.sarif'
 
-    - name: Inspect TRIVY SARIF report
-      run: cat ./trivy-results.sarif
+    #- name: Inspect TRIVY SARIF report
+    #  run: cat ./trivy-results.sarif
         
     - name: "Check Path and Java Home"
       run: echo "PATH is $PATH || $JAVA_HOME"
