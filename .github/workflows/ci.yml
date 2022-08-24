@@ -56,9 +56,9 @@ jobs:
     - name: Inspect ANCHORE SARIF report
       run: cat ${{ steps.scan.outputs.sarif }}
       
-    - uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: Add SARIF report
+    #- uses: stefanzweifel/git-auto-commit-action@v4
+    #  with:
+    #    commit_message: Add SARIF report
         
     #- name: Run Trivy vulnerability scanner
     #  uses: aquasecurity/trivy-action@master
