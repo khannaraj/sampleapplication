@@ -43,7 +43,7 @@ jobs:
       id: scan
       with:
         image: "khannaraj/sampleapplication:latest"
-        fail-build: true
+        fail-build: false
         #severity-cutoff: critical
         severity-cutoff: medium
         acs-report-enable: true
@@ -55,7 +55,11 @@ jobs:
 
     - name: Inspect ANCHORE SARIF report
       run: cat ${{ steps.scan.outputs.sarif }}
-  
+      
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Add SARIF report
+        
     #- name: Run Trivy vulnerability scanner
     #  uses: aquasecurity/trivy-action@master
     #  id: scan2
