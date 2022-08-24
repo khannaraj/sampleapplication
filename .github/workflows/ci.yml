@@ -55,7 +55,13 @@ jobs:
 
     - name: Inspect ANCHORE SARIF report
       run: cat ${{ steps.scan.outputs.sarif }}
-      
+    
+    - name: Archive code coverage results
+      uses: actions/upload-artifact@v3
+      with:
+        name: scan-sarif-report
+        path: ${{ steps.scan.outputs.sarif }}
+          
     #- uses: stefanzweifel/git-auto-commit-action@v4
     #  with:
     #    commit_message: Add SARIF report
