@@ -90,7 +90,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GIT_HUB_TOKEN }}
       with:
-        bump_version_scheme: minor
+        bump_version_scheme: major
         tag_prefix: v
           
     - name: Check Output Parameters Tags
