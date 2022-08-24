@@ -87,6 +87,8 @@ jobs:
     - name: Release
       id: release
       uses: rymndhng/release-on-push-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GIT_HUB_TOKEN }}
       with:
         bump_version_scheme: minor
         tag_prefix: v
