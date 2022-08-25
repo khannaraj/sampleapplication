@@ -57,7 +57,7 @@ jobs:
     - uses: 5monkeys/cobertura-action@master
       name: Cobertura Test Coverage
       with:
-        path: src/test.xml
+        path: test.xml
         minimum_coverage: 75
         
     #- uses: actions/checkout@v2
