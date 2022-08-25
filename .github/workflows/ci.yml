@@ -37,9 +37,9 @@ jobs:
       run: |
         echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
         echo "branches = ${{ steps.jacoco.outputs.branches }}"
-        if: ${{ steps.jacoco.outputs.coverage > 50 }}
-        steps:
-          -run echo "Coverage is good"
+        #if: ${{ steps.jacoco.outputs.coverage > 50 }}
+        #steps:
+        #  -run echo "Coverage is good"
 
     #- uses: actions/checkout@v2
     #  name: Check out code
