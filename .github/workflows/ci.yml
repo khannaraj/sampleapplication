@@ -40,25 +40,28 @@ jobs:
         #if: ${{ steps.jacoco.outputs.coverage > 50 }}
         #steps:
         #  -run echo "Coverage is good"
-
-    #- name: Code Coverage Report Cobertura
-      #uses: irongut/CodeCoverageSummary@v1.3.0
-      #with:
-        #filename: coverage.cobertura.xml
-        #badge: true
-        #fail_below_min: true
-        #format: markdown
-        #hide_branch_rate: false
-        #hide_complexity: true
-        #indicators: true
-        #output: both
-        #thresholds: '60 80'
         
-    - uses: 5monkeys/cobertura-action@master
-      name: Cobertura Test Coverage
+    - name: Copy Coverage To Predictable Location
+      run: cp coverage/*/coverage.cobertura.xml coverage/coverage.cobertura.xml
+
+    - name: Code Coverage Report Cobertura
+      uses: irongut/CodeCoverageSummary@v1.3.0
       with:
-        path: test.xml
-        minimum_coverage: 75
+        filename: coverage.cobertura.xml
+        badge: true
+        fail_below_min: true
+        format: markdown
+        hide_branch_rate: false
+        hide_complexity: true
+        indicators: true
+        output: both
+        thresholds: '60 80'
+        
+    #- uses: 5monkeys/cobertura-action@master
+    #  name: Cobertura Test Coverage
+    #  with:
+    #    path: test.xml
+    #    minimum_coverage: 75
         
     #- uses: actions/checkout@v2
     #  name: Check out code
