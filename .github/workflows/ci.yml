@@ -25,6 +25,44 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
+    - name: Generate JaCoCo badge
+      id: jacoco
+      uses: cicirello/jacoco-badge-generator@v2
+      with:
+        badges-directory: badges
+        generate-branches-badge: true
+        generate-summary: true
+
+    - name: Log coverage percentages to workflow output
+      run: |
+        echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
+        echo "branches = ${{ steps.jacoco.outputs.branches }}"
+        #if: ${{ steps.jacoco.outputs.coverage > 50 }}
+        #steps:
+        #  -run echo "Coverage is good"
+        
+    #- name: Copy Coverage To Predictable Location
+    #  run: cp coverage/*/coverage.cobertura.xml coverage/coverage.cobertura.xml
+
+    #- name: Code Coverage Report Cobertura
+    #  uses: irongut/CodeCoverageSummary@v1.3.0
+    #  with:
+    #    filename: coverage.cobertura.xml
+    #    badge: true
+    #    fail_below_min: true
+    #    format: markdown
+    #    hide_branch_rate: false
+    #    hide_complexity: true
+    #    indicators: true
+    #    output: both
+    #    thresholds: '60 80'
+        
+    #- uses: 5monkeys/cobertura-action@master
+    #  name: Cobertura Test Coverage
+    #  with:
+    #    path: test.xml
+    #    minimum_coverage: 75
+        
     #- uses: actions/checkout@v2
     #  name: Check out code
 
