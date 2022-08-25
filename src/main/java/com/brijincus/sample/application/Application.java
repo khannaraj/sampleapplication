@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 		exclude = { DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class, HibernateJpaAutoConfiguration.class }
 )
 @RestController
-public class Application {
+public class Application { 
 
 	@RequestMapping("/")
 	public String home() {
